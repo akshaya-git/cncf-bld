@@ -2,6 +2,6 @@
 FROM oraclelinux:7-slim
 RUN yum -y install httpd
 COPY index.html /var/www/html/
-ADD httpd -k start &
+RUN echo "HTTP server running on guest" > /var/www/html/index.html
 EXPOSE 80
-ENTRYPOINT /usr/sbin/httpd -D FOREGROUND
+ENTRYPOINT /usr/sbin/httpd -D FOREGROUND 
